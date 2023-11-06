@@ -1,0 +1,55 @@
+﻿<UserControl
+    x:Class="SDWPFView.PharmacyManagerViews.PharmacyManagerEmployeeControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:SDWPFView"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="30" />
+        </Grid.RowDefinitions>
+
+        <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+            <Button
+                x:Name="AddEmployeeBtn"
+                Margin="0,0,20,0"
+                Padding="5,0,5,0"
+                VerticalAlignment="Center"
+                Background="White"
+                BorderThickness="0"
+                Click="AddEmployeeBtn_Click"
+                Content="Добавить"
+                FontSize="14" />
+            <Button
+                x:Name="ShowEmployeeInfoBtn"
+                Margin="0,0,17,0"
+                Padding="5,0,5,0"
+                VerticalAlignment="Center"
+                Background="White"
+                BorderThickness="0"
+                Click="ShowEmployeeInfoBtn_Click"
+                Content="Подробнее"
+                FontSize="14" />
+        </StackPanel>
+
+        <ScrollViewer Grid.Row="1">
+            <DataGrid
+                x:Name="EmployeesTable"
+                AutoGenerateColumns="False"
+                CanUserAddRows="False"
+                IsReadOnly="True">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding Path=id}" Header="Id" />
+                    <DataGridTextColumn Binding="{Binding Path=e_login}" Header="Логин" />
+                    <DataGridTextColumn Binding="{Binding Path=appointment}" Header="Должность" />
+                </DataGrid.Columns>
+            </DataGrid>
+        </ScrollViewer>
+    </Grid>
+</UserControl>

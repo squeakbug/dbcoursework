@@ -1,0 +1,17 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace ViewModel.Entities
+{
+    public class AddProductToInvoiceVM
+    {
+        public string MeasureUnit { get; set; }
+        public string ProductionDate { get; set; }
+        public string Count { get; set; }
+        public string VendorVax { get; set; }
+        public string Series { get; set; }
+        public string StorageLocation { get; set; }
+        public string VendorPrice { get; set; }
+    }
+}

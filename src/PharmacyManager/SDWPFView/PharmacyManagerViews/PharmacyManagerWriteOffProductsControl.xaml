@@ -1,0 +1,51 @@
+﻿<UserControl
+    x:Class="SDWPFView.PharmacyManagerViews.PharmacyManagerWriteOffProductsControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:SDWPFView"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="30" />
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="120" />
+            </Grid.ColumnDefinitions>
+
+            <Button
+                x:Name="WriteOffProductDetailsBtn"
+                Grid.Column="1"
+                Margin="0,0,17,0"
+                Background="White"
+                BorderThickness="0"
+                Click="WriteOffProductDetailsBtn_Click"
+                Content="Подробнее"
+                FontSize="14" />
+        </Grid>
+
+        <ScrollViewer Grid.Row="1">
+            <DataGrid
+                x:Name="WriteOffProductsTable"
+                AutoGenerateColumns="False"
+                CanUserAddRows="False"
+                IsReadOnly="True"
+                SelectionMode="Extended">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding Path=Id}" Header="Id" />
+                    <DataGridTextColumn Binding="{Binding Path=WriteOffDate}" Header="Дата списания" />
+                    <DataGridTextColumn Binding="{Binding Path=Count}" Header="Количество" />
+                    <DataGridTextColumn Binding="{Binding Path=StorageLocation}" Header="Место хранения" />
+                </DataGrid.Columns>
+            </DataGrid>
+        </ScrollViewer>
+    </Grid>
+</UserControl>

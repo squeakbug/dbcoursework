@@ -1,0 +1,118 @@
+﻿<UserControl
+    x:Class="SDWPFView.StockmanViews.StockmanInvoicesControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:SDWPFView"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="30" />
+            </Grid.RowDefinitions>
+
+            <StackPanel
+                Grid.Row="0"
+                HorizontalAlignment="Right"
+                Orientation="Horizontal">
+                <Button
+                    x:Name="ShowInvoiceDetailsBtn"
+                    Margin="0,0,20,0"
+                    Padding="5,0,5,0"
+                    VerticalAlignment="Center"
+                    Background="White"
+                    BorderThickness="0"
+                    Click="ShowInvoiceDetailsBtn_Click"
+                    Content="Подробнее"
+                    FontSize="14" />
+                <Button
+                    x:Name="ShowIncomeProductsBtn"
+                    Margin="0,0,20,0"
+                    Padding="5,0,5,0"
+                    VerticalAlignment="Center"
+                    Background="White"
+                    BorderThickness="0"
+                    Click="ShowIncomeProductsBtn_Click"
+                    Content="Просмотр товаров"
+                    FontSize="14" />
+                <Button
+                    x:Name="AcceptBtn"
+                    Margin="0,0,17,0"
+                    Padding="5,0,5,0"
+                    VerticalAlignment="Center"
+                    Background="White"
+                    BorderThickness="0"
+                    Click="AcceptBtn_Click"
+                    Content="Подтвердить приход"
+                    FontSize="14" />
+            </StackPanel>
+
+            <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Auto">
+                <DataGrid
+                    x:Name="InvoiceTable"
+                    AutoGenerateColumns="False"
+                    CanUserAddRows="False"
+                    IsReadOnly="True">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Binding="{Binding Path=Id}" Header="Id" />
+                        <DataGridTextColumn Binding="{Binding Path=InvoiceNumber}" Header="Номер" />
+                        <DataGridTextColumn Binding="{Binding Path=InvoiceDate}" Header="Дата создания" />
+                        <DataGridTextColumn Binding="{Binding Path=State}" Header="Состояние" />
+                        <DataGridTextColumn Binding="{Binding Path=DocumentGTIN}" Header="GTIN документа" />
+                    </DataGrid.Columns>
+                </DataGrid>
+            </ScrollViewer>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30" />
+                <RowDefinition />
+                <RowDefinition Height="30" />
+            </Grid.RowDefinitions>
+
+            <StackPanel
+                Grid.Row="0"
+                HorizontalAlignment="Right"
+                Orientation="Horizontal">
+                <Button
+                    x:Name="ShowMarkedProductDetails"
+                    Margin="0,0,17,0"
+                    Padding="5,0,5,0"
+                    VerticalAlignment="Center"
+                    Background="White"
+                    BorderThickness="0"
+                    Click="ShowMarkedProductDetails_Click"
+                    Content="Подробнее"
+                    FontSize="14" />
+            </StackPanel>
+
+            <ScrollViewer Grid.Row="1">
+                <DataGrid
+                    x:Name="InvoiceProductsTable"
+                    AutoGenerateColumns="False"
+                    CanUserAddRows="False"
+                    IsReadOnly="True">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Binding="{Binding Path=Id}" Header="Id" />
+                        <DataGridTextColumn Binding="{Binding Path=Count}" Header="Количество" />
+                        <DataGridTextColumn Binding="{Binding Path=MeasureUnit}" Header="Мера" />
+                        <DataGridTextColumn Binding="{Binding Path=Series}" Header="Серия" />
+                        <DataGridTextColumn Binding="{Binding Path=VendorPrice}" Header="Цена поставщика" />
+                        <DataGridTextColumn Binding="{Binding Path=VendorVax}" Header="Наценка поставщика" />
+                        <DataGridTextColumn Binding="{Binding Path=ProductionDate}" Header="Дата производства" />
+                        <DataGridTextColumn Binding="{Binding Path=StorageLocation}" Header="Место хранения" />
+                    </DataGrid.Columns>
+                </DataGrid>
+            </ScrollViewer>
+        </Grid>
+    </Grid>
+</UserControl>

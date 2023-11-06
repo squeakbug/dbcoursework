@@ -1,0 +1,97 @@
+﻿<Window x:Class="SDWPFView.ProductManagerViews.ProductManagerDefaultWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SDWPFView.ProductManagerViews"
+        xmlns:p="clr-namespace:SDWPFView"
+        mc:Ignorable="d"
+        Title="ProductManagerDefaultWindow" Height="450" Width="800" Closing="Window_Closing">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="32"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Menu Grid.Row="0" Name="FunctionalMenu" VerticalAlignment="Top">
+            <MenuItem Header="_Справка">
+                <MenuItem Header="Справка"/>
+                <Separator/>
+                <MenuItem Header="О Программе"/>
+            </MenuItem>
+            <MenuItem Header="Настройки"/>
+        </Menu>
+
+        <p:CommonStatusBar Grid.Row="1" x:Name="CommonStatusBar"/>
+        
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <DockPanel Grid.Column="0">
+                <Border BorderBrush="DarkBlue" BorderThickness="0, 0, 3, 0">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30"/>
+                            <RowDefinition Height="30"/>
+                            <RowDefinition Height="30"/>
+                            <RowDefinition Height="30"/>
+                            <RowDefinition Height="30"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="30"/>
+                        </Grid.RowDefinitions>
+                        <Button Grid.Row="0" Name="OpenMarkedProductBtn" HorizontalContentAlignment="Stretch" Click="OpenMarkedProductBtn_Click">
+                            <Button.Content>
+                                <TextBlock  Margin="10,0,0,0" TextAlignment="Left">
+                                    Хранимые ЛС
+                                </TextBlock>
+                            </Button.Content>
+                        </Button>
+                        <Button Grid.Row="1" Name="OpenProductBtn" HorizontalContentAlignment="Stretch" Click="OpenProductBtn_Click">
+                            <Button.Content>
+                                <TextBlock Margin="10,0,0,0" TextAlignment="Left">
+                                    Лекарственные средства
+                                </TextBlock>
+                            </Button.Content>
+                        </Button>
+                        <Button Grid.Row="2" Name="OpenVendorBtn" HorizontalContentAlignment="Stretch" Click="OpenVendorBtn_Click">
+                            <Button.Content>
+                                <TextBlock Margin="10,0,0,0" TextAlignment="Left">
+                                    Поставщики
+                                </TextBlock>
+                            </Button.Content>
+                        </Button>
+                        <Button Grid.Row="3" Name="OpenEmployeeStatisticBtn" HorizontalContentAlignment="Stretch" Click="OpenEmployeeStatisticBtn_Click">
+                            <Button.Content>
+                                <TextBlock Margin="10,0,0,0" TextAlignment="Left">
+                                    Статистика сотрудников
+                                </TextBlock>
+                            </Button.Content>
+                        </Button>
+                        <Button Grid.Row="4" Name="OpenProductStatisticBtn" HorizontalContentAlignment="Stretch" Click="OpenProductStatisticBtn_Click">
+                            <Button.Content>
+                                <TextBlock Margin="10,0,0,0" TextAlignment="Left">
+                                    Статистика продаж
+                                </TextBlock>
+                            </Button.Content>
+                        </Button>
+                        <Button Grid.Row="6" x:Name="Exit" Click="Exit_Click">
+                            Выход
+                        </Button>
+                    </Grid>
+                </Border>
+            </DockPanel>
+
+            <p:CommonDefaultControl Grid.Column="1" x:Name="DefaultControl" Visibility="Visible"/>
+            <local:ProductManagerEmployeeStatisticControl Grid.Column="1" x:Name="EmployeeStatisticsControl" Visibility="Hidden"/>
+            <local:ProductManagerMarkedProductsControl Grid.Column="1" x:Name="MarkedProductsControl" Visibility="Hidden"/>
+            <local:ProductManagerProductsControl Grid.Column="1" x:Name="ProductsControl" Visibility="Hidden"/>
+            <local:ProductManagerProductStatisticControl Grid.Column="1" x:Name="ProductStatisticControl" Visibility="Hidden"/>
+            <local:ProductManagerVendorsControl Grid.Column="1" x:Name="VendorsControl" Visibility="Hidden"/>
+        </Grid>
+    </Grid>
+</Window>

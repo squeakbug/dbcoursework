@@ -1,0 +1,54 @@
+﻿<UserControl
+    x:Class="SDWPFView.PharmacyManagerViews.PharmacyManagerProductsControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:SDWPFView"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="30" />
+        </Grid.RowDefinitions>
+
+        <StackPanel
+            Grid.Row="0"
+            HorizontalAlignment="Right"
+            Orientation="Horizontal">
+            <Button
+                x:Name="UpdateProductBtn"
+                Margin="0,0,17,0"
+                Padding="5,0,5,0"
+                Background="White"
+                BorderThickness="0"
+                Click="UpdateProductBtn_Click"
+                Content="Подробнее"
+                FontSize="14" />
+        </StackPanel>
+
+        <ScrollViewer Grid.Row="1">
+            <DataGrid
+                x:Name="ProductsTable"
+                AutoGenerateColumns="False"
+                CanUserAddRows="False"
+                IsReadOnly="True">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding Path=Id}" Header="Id" />
+                    <DataGridTextColumn Binding="{Binding Path=P_name}" Header="Наименование" />
+                    <DataGridTextColumn Binding="{Binding Path=Gtin}" Header="GTIN" />
+                    <DataGridTextColumn Binding="{Binding Path=Articul}" Header="Артикул" />
+                    <DataGridTextColumn Binding="{Binding Path=Trademark}" Header="Торговая марка" />
+                    <DataGridTextColumn Binding="{Binding Path=Threashold_count}" Header="Порог" />
+                    <DataGridTextColumn Binding="{Binding Path=Dosage}" Header="Дозировка" />
+                    <DataGridTextColumn Binding="{Binding Path=Storage_temperature}" Header="Температура хранения" />
+                    <DataGridTextColumn Binding="{Binding Path=Maximum_shelf_life}" Header="Время хранения" />
+                    <DataGridTextColumn Binding="{Binding Path=Leave_condition}" Header="Условие отпуска" />
+                </DataGrid.Columns>
+            </DataGrid>
+        </ScrollViewer>
+    </Grid>
+</UserControl>

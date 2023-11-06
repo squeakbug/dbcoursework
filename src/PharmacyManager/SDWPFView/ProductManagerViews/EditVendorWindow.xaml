@@ -1,0 +1,48 @@
+﻿<Window x:Class="SDWPFView.EditVendorWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SDWPFView"
+        mc:Ignorable="d"
+        Title="EditVendorWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Row="1" Content="Краткое название" Padding="0,0,0,0" Margin="10,0,0,0" VerticalAlignment="Center"/>
+            <Label Grid.Row="2" Content="Полное наименование" Padding="0,0,0,0" Margin="10,0,0,0" VerticalAlignment="Center"/>
+            <Label Grid.Row="3" Content="Телефон" Padding="0,0,0,0" Margin="10,0,0,0" VerticalAlignment="Center"/>
+            <Label Grid.Row="4" Content="ИНН" Padding="0,0,0,0" Margin="10,0,0,0" VerticalAlignment="Center"/>
+            <Label Grid.Row="5" Content="КПП" Padding="0,0,0,0" Margin="10,0,0,0" VerticalAlignment="Center"/>
+
+            <TextBox x:Name="ShortNameTextBox" Grid.Row="1" Grid.Column="1" Padding="0,0,0,0" Margin="0,0,17,0" Height="23" VerticalAlignment="Center"/>
+            <TextBox x:Name="FullNameTextBox" Grid.Row="2" Grid.Column="1" Padding="0,0,0,0" Margin="0,0,17,0" Height="23" VerticalAlignment="Center"/>
+            <TextBox x:Name="PhoneTextBox" Grid.Row="3" Grid.Column="1" Padding="0,0,0,0" Margin="0,0,17,0" Height="23" VerticalAlignment="Center"/>
+            <TextBox x:Name="INNTextBox" Grid.Row="4" Grid.Column="1" Padding="0,0,0,0" Margin="0,0,17,0" Height="23" VerticalAlignment="Center"/>
+            <TextBox x:Name="KPPTextBox" Grid.Row="5" Grid.Column="1" Padding="0,0,0,0" Margin="0,0,17,0" Height="23" VerticalAlignment="Center"/>
+        </Grid>
+
+        <StackPanel Grid.Row="1" HorizontalAlignment="Right" Orientation="Horizontal">
+            <Button x:Name="Cancel" Content="Отмена" Padding="10,0,10,0" Margin="0,0,20,0" Height="30" Click="Cancel_Click"/>
+            <Button x:Name="UpdateVendorBtn" Content="Изменить" Padding="10,0,10,0" Margin="0,0,17,0" Height="30" Click="UpdateVendorBtn_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>
